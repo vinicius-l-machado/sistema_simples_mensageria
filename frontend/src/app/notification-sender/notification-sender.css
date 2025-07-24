@@ -1,0 +1,119 @@
+/* src/app/notification-sender/notification-sender.component.css */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input-group button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+  background-color: #0056b3;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notification-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-left: 5px solid #007bff; /* Default indicator */
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px; /* Row gap, column gap */
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.notification-list li.aguardando-processamento {
+  border-left-color: #ffc107; /* Yellow for pending */
+}
+
+.notification-list li.processado-sucesso {
+  border-left-color: #28a745; /* Green for success */
+}
+
+.notification-list li.falha-processamento {
+  border-left-color: #dc3545; /* Red for failure */
+}
+
+.notification-list li.erro-ao-enviar {
+  border-left-color: #6c757d; /* Gray for send error */
+}
+
+.no-notifications {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+  font-style: italic;
+}
+
+.message-id,
+.message-content,
+.message-status {
+  flex-basis: auto; /* Allow items to shrink/grow based on content */
+  white-space: nowrap; /* Prevent wrapping for individual labels */
+}
+
+.message-id {
+  font-family: 'Courier New', Courier, monospace;
+  color: #666;
+}
+
+.message-status {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
+  .notification-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .message-id, .message-content, .message-status {
+    width: 100%; /* Take full width on small screens */
+  }
+}

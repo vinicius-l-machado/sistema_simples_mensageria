@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+build/
+
+# Angular
+dist/
+.angular/cache/
+coverage/
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+*.log

@@ -1,0 +1,33 @@
+<!-- src/app/notification-sender/notification-sender.component.html -->
+<div class="container">
+  <h2>Enviar Nova Notificação</h2>
+  <div class="input-group">
+    <input
+      type="text"
+      [(ngModel)]="conteudoMensagem"
+      placeholder="Digite o conteúdo da mensagem..."
+      (keyup.enter)="sendNotification()"
+    />
+    <button (click)="sendNotification()">Enviar Notificação</button>
+  </div>
+
+  <h2>Status das Notificações</h2>
+  <ul class="notification-list">
+    <li *ngIf="notifications.length === 0" class="no-notifications">
+      Nenhuma notificação enviada ainda.
+    </li>
+    <!-- ALTERAÇÃO AQUI: Chamando getCssClass(notification.status) -->
+    <li *ngFor="let notification of notifications" [class]="getCssClass(notification.status)">
+      <div class="message-id">
+        <!-- ALTERAÇÃO AQUI: Chamando getShortenedId(notification.mensagemId) -->
+        <strong>ID:</strong> {{ getShortenedId(notification.mensagemId) }}...
+      </div>
+      <div class="message-content">
+        <strong>Conteúdo:</strong> {{ notification.conteudo }}
+      </div>
+      <div class="message-status">
+        <strong>Status:</strong> {{ notification.status }}
+      </div>
+    </li>
+  </ul>
+</div>
